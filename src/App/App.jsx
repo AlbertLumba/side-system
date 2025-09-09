@@ -24,7 +24,7 @@ export default function App() {
       <div className="flex flex-1">
         {/* Sidebar */}
         <aside
-          className={`bg-gray-100 border-r transition-all duration-300 ${
+          className={`shadow-md transition-all duration-300 ${
             isSidebarOpen ? "w-64" : "w-0"
           }`}
         >
