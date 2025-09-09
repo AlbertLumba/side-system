@@ -1,25 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaHome, FaTable, FaEdit } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import routes from "../../App/routes"; // ✅ adjust path if needed
 
 export default function Navbar() {
   return (
-    <nav className="p-4 flex flex-col gap-3 text-gray-700">
-      <Link to="/" className="flex items-center gap-2 hover:text-blue-600">
-        <FaHome /> Home
-      </Link>
-      <Link
-        to="/records"
-        className="flex items-center gap-2 hover:text-blue-600"
-      >
-        <FaTable /> Production Records
-      </Link>
-      <Link
-        to="/edit-records"
-        className="flex items-center gap-2 hover:text-blue-600"
-      >
-        <FaEdit /> Edit Records
-      </Link>
+    <nav className="p-4">
+      <ul>
+        {routes.map((route, i) => {
+          const IconComponent = route.icon;
+          return (
+            <li key={i} className="mb-2">
+              <NavLink
+                to={route.path}
+                end
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 ${
+                    isActive
+                      ? "bg-blue-600 text-white shadow"
+                      : "text-gray-700 hover:bg-gray-200"
+                  }`
+                }
+              >
+                {IconComponent && <IconComponent size={18} />}
+                <span>{route.name}</span>
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }
