@@ -1,4 +1,4 @@
-// src/features/products/productsSlice.js
+// src/features/prod-management-view/prodManagementViewSlice.jsx
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchProducts } from "./services/prodManagementViewAPI";
 
@@ -14,8 +14,16 @@ const prodManagementViewSlice = createSlice({
     items: [],
     status: "idle", // idle | loading | succeeded | failed
     error: null,
+    isAddModalOpen: false, // 👈 UI state
   },
-  reducers: {},
+  reducers: {
+    openAddProductModal: (state) => {
+      state.isAddModalOpen = true;
+    },
+    closeAddProductModal: (state) => {
+      state.isAddModalOpen = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
@@ -31,5 +39,8 @@ const prodManagementViewSlice = createSlice({
       });
   },
 });
+
+export const { openAddProductModal, closeAddProductModal } =
+  prodManagementViewSlice.actions;
 
 export default prodManagementViewSlice.reducer;
