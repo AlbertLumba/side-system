@@ -1,26 +1,45 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import routes from "./routes";
+import { FaBars } from "react-icons/fa";
+import Navbar from "../shared/components/Navbar"; // ✅ import Navbar
 
-function App() {
+export default function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
-    <div className="p-6">
-      <nav className="mb-6">
-        <Link to="/" className="mr-4 text-blue-600">
-          Home
-        </Link>
-        <Link to="/records" className="text-blue-600">
-          Production Records
-        </Link>
-      </nav>
+    <div className="h-screen flex flex-col">
+      {/* Header */}
+      <header className="h-14 bg-blue-600 text-white flex items-center px-4 shadow">
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="mr-4 p-2 rounded hover:bg-blue-500"
+        >
+          <FaBars size={20} />
+        </button>
+        <h1 className="font-semibold text-lg">Production Manager</h1>
+      </header>
 
-      <Routes>
-        {routes.map(({ path, element }, i) => (
-          <Route key={i} path={path} element={element} />
-        ))}
-      </Routes>
+      {/* Layout */}
+      <div className="flex flex-1">
+        {/* Sidebar */}
+        <aside
+          className={`bg-gray-100 border-r transition-all duration-300 ${
+            isSidebarOpen ? "w-64" : "w-0"
+          }`}
+        >
+          {isSidebarOpen && <Navbar />} {/* ✅ use menu here */}
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 p-6 overflow-y-auto">
+          <Routes>
+            {routes.map(({ path, element }, i) => (
+              <Route key={i} path={path} element={element} />
+            ))}
+          </Routes>
+        </main>
+      </div>
     </div>
   );
 }
-
-export default App;
