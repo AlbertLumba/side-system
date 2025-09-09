@@ -1,6 +1,8 @@
 import React from "react";
 import { FaTachometerAlt, FaBox, FaClipboardList } from "react-icons/fa";
+import { MdProductionQuantityLimits } from "react-icons/md";
 import RecordsFeature from "../features/records";
+import ProdManagementViewTableFeatures from "../features/prod-management-view";
 
 const routes = [
   {
@@ -14,6 +16,12 @@ const routes = [
     element: <RecordsFeature />,
     name: "Records",
     icon: FaClipboardList,
+  },
+  {
+    path: "/products",
+    element: <ProdManagementViewTableFeatures />,
+    name: "Products",
+    icon: MdProductionQuantityLimits,
   },
 ];
 
