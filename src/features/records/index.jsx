@@ -1,19 +1,35 @@
 import React, { useState } from "react";
 import RecordsTable from "./components/RecordsTable";
 import Button from "../../shared/components/Button";
-import Modal from "../../shared/components/Modal"; // ✅ Import your Modal
+import ModalCenter from "../../shared/components/ModalCenter";
+import Input from "../../shared/components/Input";
 
 export default function RecordsFeature() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // ✅ Initialize all fields
   const [formData, setFormData] = useState({
     tagProduct: "",
     definition: "",
+    storeOrd: "",
+    storeRec: "",
+    storeRet: "",
+    storeSal: "",
+    storeStr: "",
+    storeTro: "",
+    storeTri: "",
+    dcOrd: "",
+    dcRec: "",
+    dcRet: "",
+    dcTro: "",
+    dcTri: "",
+    itemType: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (field) => (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [field]: e.target.value,
     });
   };
 
@@ -21,10 +37,26 @@ export default function RecordsFeature() {
     e.preventDefault();
 
     // ✅ TODO: Replace with Redux dispatch (e.g. dispatch(addRecord(formData)))
-    console.log("New Product:", formData);
+    console.log("New Record:", formData);
 
     setIsModalOpen(false);
-    setFormData({ tagProduct: "", definition: "" }); // reset form
+    setFormData({
+      tagProduct: "",
+      definition: "",
+      storeOrd: "",
+      storeRec: "",
+      storeRet: "",
+      storeSal: "",
+      storeStr: "",
+      storeTro: "",
+      storeTri: "",
+      dcOrd: "",
+      dcRec: "",
+      dcRet: "",
+      dcTro: "",
+      dcTri: "",
+      itemType: "",
+    });
   };
 
   return (
@@ -34,7 +66,7 @@ export default function RecordsFeature() {
         <h1 className="text-2xl font-bold">Production Management Records</h1>
 
         <Button
-          onClick={() => setIsModalOpen(true)} // ✅ open modal
+          onClick={() => setIsModalOpen(true)}
           color="primary-blue"
           variant="outline"
         >
@@ -45,39 +77,94 @@ export default function RecordsFeature() {
       {/* Feature Body */}
       <RecordsTable />
 
-      {/* ✅ Modal for adding product */}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 className="text-xl font-bold mb-4">Add Product</h2>
+      {/* ✅ Modal with full form */}
+      <ModalCenter isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="text-xl font-bold mb-4">Add Tag</h2>
 
-        <form onSubmit={handleSubmit}>
-          {/* TAG Product */}
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">TAG Product</label>
-            <input
-              type="text"
-              name="tagProduct"
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Grouped Inputs */}
+          <div className="grid grid-cols-2 gap-4">
+            <Input
+              label="TAG Product"
               value={formData.tagProduct}
-              onChange={handleChange}
-              className="w-full border rounded px-2 py-1"
+              onChange={handleChange("tagProduct")}
               required
             />
-          </div>
-
-          {/* Definition */}
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Definition</label>
-            <input
-              type="text"
-              name="definition"
+            <Input
+              label="Definition"
               value={formData.definition}
-              onChange={handleChange}
-              className="w-full border rounded px-2 py-1"
+              onChange={handleChange("definition")}
               required
+            />
+            <Input
+              label="Store Ord"
+              value={formData.storeOrd}
+              onChange={handleChange("storeOrd")}
+            />
+            <Input
+              label="Store Rec"
+              value={formData.storeRec}
+              onChange={handleChange("storeRec")}
+            />
+            <Input
+              label="Store Ret"
+              value={formData.storeRet}
+              onChange={handleChange("storeRet")}
+            />
+            <Input
+              label="Store Sal"
+              value={formData.storeSal}
+              onChange={handleChange("storeSal")}
+            />
+            <Input
+              label="Store Str"
+              value={formData.storeStr}
+              onChange={handleChange("storeStr")}
+            />
+            <Input
+              label="Store Tro"
+              value={formData.storeTro}
+              onChange={handleChange("storeTro")}
+            />
+            <Input
+              label="Store Tri"
+              value={formData.storeTri}
+              onChange={handleChange("storeTri")}
+            />
+            <Input
+              label="DC Ord"
+              value={formData.dcOrd}
+              onChange={handleChange("dcOrd")}
+            />
+            <Input
+              label="DC Rec"
+              value={formData.dcRec}
+              onChange={handleChange("dcRec")}
+            />
+            <Input
+              label="DC Ret"
+              value={formData.dcRet}
+              onChange={handleChange("dcRet")}
+            />
+            <Input
+              label="DC Tro"
+              value={formData.dcTro}
+              onChange={handleChange("dcTro")}
+            />
+            <Input
+              label="DC Tri"
+              value={formData.dcTri}
+              onChange={handleChange("dcTri")}
+            />
+            <Input
+              label="Item Type"
+              value={formData.itemType}
+              onChange={handleChange("itemType")}
             />
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-2">
+          <div className="flex justify-end gap-2 pt-4">
             <Button
               type="button"
               onClick={() => setIsModalOpen(false)}
@@ -93,7 +180,7 @@ export default function RecordsFeature() {
             </Button>
           </div>
         </form>
-      </Modal>
+      </ModalCenter>
     </section>
   );
 }

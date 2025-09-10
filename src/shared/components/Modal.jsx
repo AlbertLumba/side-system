@@ -19,3 +19,4 @@ export default function Modal({ isOpen, onClose, children }) {
     </div>
   );
 }
+
