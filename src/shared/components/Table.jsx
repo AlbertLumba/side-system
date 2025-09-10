@@ -34,16 +34,18 @@ export default function Table({
               <tr>
                 {/* ✅ Fixed View Column */}
                 <th
-                  className="border p-2 bg-gray-100 text-center"
-                  style={{
-                    position: "sticky",
-                    left: 0,
-                    zIndex: 40,
-                    minWidth: "90px",
-                  }}
-                >
-                  Action
-                </th>
+              className="border border-black border-r-2 p-2 bg-gray-100 text-center"
+              style={{
+                position: "sticky",
+                left: 0,
+                zIndex: 50,
+                minWidth: "90px",
+                background: "#f9fafb",
+              }}
+            >
+              Action
+            </th>
+
 
                 {/* Other columns */}
                 {columns.map((col, i) => (
@@ -70,14 +72,14 @@ export default function Table({
             ) : (
               paginatedData.map((row, i) => (
                 <tr key={i}>
-                  {/* ✅ Fixed View button column */}
+                  {/* Fixed View button column */}
                   <td
-                    className="border p-2 bg-white text-center"
+                    className="border border-black p-2 bg-white text-center"
                     style={{
                       position: "sticky",
                       left: 0,
                       background: "white",
-                      zIndex: 30,
+                      zIndex: 40,
                       minWidth: "90px",
                     }}
                   >
@@ -88,6 +90,8 @@ export default function Table({
                       View
                     </button>
                   </td>
+
+
 
                   {/* Data cells */}
                   {row.map((cell, j) => (
