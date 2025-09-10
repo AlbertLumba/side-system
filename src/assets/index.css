@@ -1,1 +1,11 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --primary-blue: blue;
+  --secondary-green: green;
+  --tertiary-yellow: yellow;
+
+  /* Font Family */
+}
+
