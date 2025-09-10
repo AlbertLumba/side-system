@@ -35,9 +35,10 @@ export default function RecordsFeature() {
 
         <Button
           onClick={() => setIsModalOpen(true)} // ✅ open modal
-          className="bg-blue-600 text-white hover:bg-blue-500"
+          color="primary-blue"
+          variant="outline"
         >
-          + Add Tag
+          Add Tag
         </Button>
       </header>
 

@@ -1,5 +1,6 @@
 // src/shared/components/Button.jsx
 import React from "react";
+import { cn } from "../../shared/utils/cn"; // optional helper for class merging if you want
 
 export default function Button({
   children,
@@ -7,17 +8,48 @@ export default function Button({
   type = "button",
   disabled = false,
   className = "",
+  variant = "solid", // "solid" | "outline" | "text"
+  color = "primary-blue", // "blue" | "red" | "green" | "gray"
+  icon: Icon, // pass lucide-react or any icon component
+  iconOnly = false, // new prop
+  iconPosition = "left", // "left" | "right"
+  ...props
 }) {
+  const baseClasses =
+    "inline-flex items-center justify-center px-4 py-2 rounded font-medium transition-colors duration-200 focus:outline-none";
+
+  const sizeClasses = iconOnly
+    ? "p-2" // square button, just icon
+    : "px-4 py-2"; // normal button
+  const variantClasses = {
+    "primary-blue": {
+      solid:
+        "bg-primary-blue-500 rounded-md cursor-pointer text-white text-sm tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-lg active:shadow-inner transition",
+
+      outline:
+        "bg-white rounded-md cursor-pointer text-primary-blue-600 text-sm tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",
+
+      text: "text-primary-blue-600",
+    },
+  };
+
+  const colorVariants = variantClasses[color]?.[variant] || "";
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-4 py-2 rounded font-medium transition-colors duration-200 
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""} 
-        ${className}`}
+      className={cn(
+        baseClasses,
+        colorVariants,
+        disabled && "opacity-50 cursor-not-allowed",
+        className
+      )}
+      {...props}
     >
-      {children}
+      {Icon && <Icon className="w-5 h-5" />}
+      {!iconOnly && children}
     </button>
   );
 }
