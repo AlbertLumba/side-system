@@ -2,10 +2,12 @@
 
 @theme {
   /* Colors */
-  --primary-blue: blue;
-  --secondary-green: green;
-  --tertiary-yellow: yellow;
+  --color-primary-blue-300: #93c5fd;
+  --color-primary-blue-500: #3b82f6;
+  --color-primary-blue-600: #155dfc;
+  --color-primary-blue-900: #1e3a8a;
+  --color-secondary-green: green;
+  --color-tertiary-yellow: yellow;
 
   /* Font Family */
 }
-
