@@ -5,6 +5,7 @@ import ProdManagementViewTable from "./components/prodManagementViewTable";
 import Button from "../../shared/components/Button";
 import Modal from "../../shared/components/Modal";
 import Input from "../../shared/components/Input";
+import { FaPlus } from "react-icons/fa6";
 import {
   openAddProductModal,
   closeAddProductModal,
@@ -34,9 +35,11 @@ export default function ProdManagementViewTableFeatures() {
         <h1 className="text-2xl font-bold">Product List</h1>
         <Button
           onClick={() => dispatch(openAddProductModal())}
-          className="bg-blue-600 text-white hover:bg-blue-500"
+          variant="solid"
+          icon={FaPlus}
+          color="primary-blue"
         >
-          + Add Product
+          Add Product
         </Button>
       </header>
 
