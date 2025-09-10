@@ -1,94 +1,132 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecords } from "../recordsSlice";
+import Table from "../../../shared/components/Table";
+import Modal from "../../../shared/components/Modal"; // ✅ assuming you have the modal
 
 export default function RecordsTable() {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.records);
 
+  const [selectedRow, setSelectedRow] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     if (status === "idle") dispatch(getRecords());
   }, [status, dispatch]);
 
-  if (status === "loading") return <p>Loading...</p>;
+  // Prepare columns for the Table component (no "Action")
+  const columns = [
+    "TAG Product",
+    "Definition",
+    "Store Ord",
+    "Store Rec",
+    "Store Ret",
+    "Store Sal",
+    "Store Str",
+    "Store Tro",
+    "Store Tri",
+    "DC Ord",
+    "DC Rec",
+    "DC Ret",
+    "DC Tro",
+    "DC Tri",
+    "Item Type"
+  ];
+
+  // Prepare data for the Table component
+  const tableData = data.map(r => [
+    r.tagProduct,
+    r.definition,
+    r.storeOrd,
+    r.storeRec,
+    r.storeRet,
+    r.storeSal,
+    r.storeStr,
+    r.storeTro,
+    r.storeTri,
+    r.dcOrd,
+    r.dcRec,
+    r.dcRet,
+    r.dcTro,
+    r.dcTri,
+    r.itemType
+  ]);
+
+  // ✅ Custom header with Action column
+  const renderCustomHeader = () => (
+    <>
+      <tr>
+        <th
+          rowSpan={2}
+          className="border border-gray-400 px-2 py-1 text-center bg-gray-100"
+          style={{ position: "sticky", left: 0, zIndex: 40 }}
+        >
+          Action
+        </th>
+        <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
+          TAG Product
+        </th>
+        <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
+          Definition
+        </th>
+        <th colSpan={7} className="border border-gray-400 px-2 py-1 text-center">
+          Store
+        </th>
+        <th colSpan={5} className="border border-gray-400 px-2 py-1 text-center">
+          DC
+        </th>
+        <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
+          Item Type
+        </th>
+      </tr>
+      <tr>
+        {["Ord", "Rec", "Ret", "Sal", "Str", "Tro", "Tri"].map((sub, idx) => (
+          <th
+            key={`store-${idx}`}
+            className="border border-gray-400 px-2 py-1 text-center"
+          >
+            {sub}
+          </th>
+        ))}
+        {["Ord", "Rec", "Ret", "Tro", "Tri"].map((sub, idx) => (
+          <th
+            key={`dc-${idx}`}
+            className="border border-gray-400 px-2 py-1 text-center"
+          >
+            {sub}
+          </th>
+        ))}
+      </tr>
+    </>
+  );
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto border-collapse border border-gray-400 w-full">
-        <thead>
-          <tr>
-            <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
-              TAG Product
-            </th>
-            <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
-              Definition
-            </th>
-            <th colSpan={7} className="border border-gray-400 px-2 py-1 text-center">
-              Store
-            </th>
-            <th colSpan={5} className="border border-gray-400 px-2 py-1 text-center">
-              DC
-            </th>
-            <th rowSpan={2} className="border border-gray-400 px-2 py-1 text-center">
-              Item Type
-            </th>
-          </tr>
-          <tr>
-            {/* Store sub-columns */}
-            {["Ord", "Rec", "Ret", "Sal", "Str", "Tro", "Tri"].map((sub, idx) => (
-              <th
-                key={`store-${idx}`}
-                className="border border-gray-400 px-2 py-1 text-center"
-              >
-                {sub}
-              </th>
+      <Table 
+        columns={columns} 
+        data={tableData} 
+        loading={status === "loading"}
+        customHeader={renderCustomHeader}
+        onView={(row) => {
+          setSelectedRow(row);
+          setIsModalOpen(true);
+        }}
+      />
+
+      {/* ✅ Modal for viewing details */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2 className="text-lg font-bold mb-4">Record Details</h2>
+        {selectedRow && (
+          <div className="space-y-2">
+            {columns.map((col, idx) => (
+              <p key={idx}>
+                <strong>{col}:</strong> {selectedRow[idx]}
+              </p>
             ))}
-            
-            {/* DC sub-columns */}
-            {["Ord", "Rec", "Ret", "Tro", "Tri"].map((sub, idx) => (
-              <th
-                key={`dc-${idx}`}
-                className="border border-gray-400 px-2 py-1 text-center"
-              >
-                {sub}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.length === 0 ? (
-            <tr>
-              <td colSpan={15} className="text-center p-4 border border-gray-400">
-                No records found
-              </td>
-            </tr>
-          ) : (
-            data.map((r, idx) => (
-              <tr key={idx}>
-                <td className="border border-gray-400 px-2 py-1">
-                  {r.tagProduct}
-                </td>
-                <td className="border border-gray-400 px-2 py-1">
-                  {r.definition}
-                </td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeOrd}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeRec}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeRet}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeSal}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeStr}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeTro}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.storeTri}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.dcOrd}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.dcRec}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.dcRet}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.dcTro}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.dcTri}</td>
-                <td className="border border-gray-400 px-2 py-1">{r.itemType}</td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }
