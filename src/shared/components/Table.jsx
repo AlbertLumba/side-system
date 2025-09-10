@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Eye } from "lucide-react";
+
 
 
 export default function Table({
@@ -91,7 +91,7 @@ export default function Table({
                     className="p-2 rounded flex items-center justify-center bg-transparent hover:bg-blue-600 group"
                     title="View"
                   >
-                    <Eye className="w-4 h-4 text-blue-600 group-hover:text-white" />
+                    {/* <Eye className="w-4 h-4 text-blue-600 group-hover:text-white" /> */}
                   </button>
 
                   </td>

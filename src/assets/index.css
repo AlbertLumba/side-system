@@ -9,5 +9,25 @@
   --color-secondary-green: green;
   --color-tertiary-yellow: yellow;
 
+  --color-primary-danger-red: red;
+  --color-primary-
+  /*font-size: 
+BOLD FONTWEIGHT = 600-700
+  headline large =  h1: 22 
+     - Page title
+  Section Headers = h2: 20
+     - User Management 
+  Title  = h3: 14 
+      - Table Column Headers, buttons 
+
+NORMAL FONT WEIGHT
+  SubTitle = 14
+  Text =  all data-text: 12
+
+LESS FONTWEIGHT = hints/disabled
+  Hints = 11; color = grey
+
+  */
+
   /* Font Family */
 }
