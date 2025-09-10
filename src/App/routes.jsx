@@ -12,7 +12,7 @@ const routes = [
     icon: FaTachometerAlt,
   },
   {
-    path: "/records",
+    path: "/tag-management",
     element: <RecordsFeature />,
     name: "Records",
     icon: FaClipboardList,

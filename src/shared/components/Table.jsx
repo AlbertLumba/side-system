@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from "react";
+import { Eye } from "lucide-react";
+
 
 export default function Table({
   columns,
@@ -25,7 +27,7 @@ export default function Table({
   return (
     <div className="w-full">
       {/* Table Wrapper with scroll */}
-      <div className="overflow-x-auto overflow-y-auto max-h-[500px] relative">
+      <div className="overflow-x-auto overflow-y-auto max-h-[557px] relative">
         <table className="border-collapse border border-gray-300 w-full min-w-max">
           <thead className="sticky top-0 bg-gray-100 z-20">
             {customHeader ? (
@@ -78,18 +80,22 @@ export default function Table({
                     style={{
                       position: "sticky",
                       left: 0,
+                      
                       background: "white",
                       zIndex: 40,
-                      minWidth: "90px",
+                      minWidth: "60px", // shrink since icon only
                     }}
                   >
                     <button
-                      onClick={() => onView(row)}
-                      className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                      View
-                    </button>
+                    onClick={() => onView(row)}
+                    className="p-2 rounded flex items-center justify-center bg-transparent hover:bg-blue-600 group"
+                    title="View"
+                  >
+                    <Eye className="w-4 h-4 text-blue-600 group-hover:text-white" />
+                  </button>
+
                   </td>
+
 
 
 
@@ -114,13 +120,10 @@ export default function Table({
 
       {/* Pagination Controls */}
       <div className="flex items-center justify-between mt-3 text-sm">
-        <p>
-          Showing {(currentPage - 1) * perPage + 1}–
-          {Math.min(currentPage * perPage, data.length)} of {data.length} records
-        </p>
-
+      {/* Left side: Items + Records */}
+      <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
-          <span>Rows per page:</span>
+          <span>Items:</span>
           <select
             value={perPage}
             onChange={(e) => {
@@ -137,50 +140,58 @@ export default function Table({
           </select>
         </div>
 
-        <div className="flex items-center gap-1">
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(1)}
-            className="px-2 py-1 border rounded disabled:opacity-50"
-          >
-            {"<<"}
-          </button>
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((p) => p - 1)}
-            className="px-2 py-1 border rounded disabled:opacity-50"
-          >
-            {"<"}
-          </button>
-
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`px-2 py-1 border rounded ${
-                currentPage === page ? "bg-blue-500 text-white" : ""
-              }`}
-            >
-              {page}
-            </button>
-          ))}
-
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-2 py-1 border rounded disabled:opacity-50"
-          >
-            {">"}
-          </button>
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage(totalPages)}
-            className="px-2 py-1 border rounded disabled:opacity-50"
-          >
-            {">>"}
-          </button>
-        </div>
+        <p>
+          Showing {(currentPage - 1) * perPage + 1}–
+          {Math.min(currentPage * perPage, data.length)} of {data.length} records
+        </p>
       </div>
+
+      {/* Right side: Pagination controls */}
+      <div className="flex items-center gap-1">
+        <button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage(1)}
+          className="px-2 py-1 disabled:opacity-50 focus:outline-none focus:ring-0"
+        >
+          {"<<"}
+        </button>
+        <button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((p) => p - 1)}
+          className="px-2 py-1 disabled:opacity-50 focus:outline-none focus:ring-0"
+        >
+          {"<"}
+        </button>
+
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`px-2 py-1 focus:outline-none focus:ring-0 ${
+              currentPage === page ? "bg-blue-500 text-white rounded" : ""
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage((p) => p + 1)}
+          className="px-2 py-1 disabled:opacity-50 focus:outline-none focus:ring-0"
+        >
+          {">"}
+        </button>
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage(totalPages)}
+          className="px-2 py-1 disabled:opacity-50 focus:outline-none focus:ring-0"
+        >
+          {">>"}
+        </button>
+      </div>
+    </div>
+
     </div>
   );
 }

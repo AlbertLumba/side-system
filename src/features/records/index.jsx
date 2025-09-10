@@ -63,7 +63,7 @@ export default function RecordsFeature() {
     <section className="p-6 bg-white rounded-lg shadow-md">
       {/* Feature Header */}
       <header className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl font-bold">Production Management Records</h1>
+        <h1 className="text-2xl font-bold">Tag Management Records</h1>
 
         <Button
           onClick={() => setIsModalOpen(true)}
