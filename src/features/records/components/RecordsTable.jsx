@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecords } from "../recordsSlice";
 import Table from "../../../shared/components/Table";
 import Modal from "../../../shared/components/Modal";
+import Button from "../../../shared/components/Button";
+
 
 export default function RecordsTable() {
   const dispatch = useDispatch();
@@ -18,7 +20,6 @@ export default function RecordsTable() {
   if (status === "failed") return <p className="text-red-500">Error: {error}</p>;
 
   return (
-
     <>
       <Table
   columns={[
@@ -50,7 +51,6 @@ export default function RecordsTable() {
           minWidth: 80,
           maxWidth: 400,
           position: "relative",
-
         }}
         className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center"
         
@@ -154,23 +154,42 @@ export default function RecordsTable() {
 
 />
 
-
-
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 className="text-lg font-bold mb-4">Record Details</h2>
-        {selectedRow && (
-          <div className="space-y-2">
-            {[
-              "TAG Product", "Definition", "Store Ord", "Store Rec", "Store Ret", "Store Sal",
-              "Store Str", "Store Tro", "Store Tri", "DC Ord", "DC Rec", "DC Ret", "DC Tro", "DC Tri", "Item Type",
-            ].map((col, idx) => (
-              <p key={idx}>
-                <strong>{col}:</strong> {selectedRow[idx]}
-              </p>
-            ))}
-          </div>
-        )}
-      </Modal>
+      <h2 className="text-lg font-bold mb-4">Record Details</h2>
+
+      {selectedRow && (
+        <div className="space-y-2">
+          {[
+            "TAG Product", "Definition", "Store Ord", "Store Rec", "Store Ret", "Store Sal",
+            "Store Str", "Store Tro", "Store Tri", "DC Ord", "DC Rec", "DC Ret", "DC Tro", "DC Tri", "Item Type",
+          ].map((col, idx) => (
+            <p key={idx}>
+              <strong>{col}:</strong> {selectedRow[idx]}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {/* Action buttons */}
+      <div className="flex justify-end gap-3 mt-6">
+        <Button
+          onClick={() => console.log("Edit clicked", selectedRow)}
+          color="primary-blue"
+          variant="solid"
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => console.log("Delete clicked", selectedRow)}
+          color="primary-blue"
+          variant="outline"
+        >
+          Delete
+        </Button>
+      </div>
+    </Modal>
+
     </>
   );
 }
+
