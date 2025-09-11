@@ -24,7 +24,7 @@ export default function Button({
   const variantClasses = {
     "primary-blue": {
       solid:
-        "bg-primary-blue-500 rounded-md cursor-pointer text-white text-sm tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-lg active:shadow-inner transition",
+        "bg-primary-blue-500 rounded-md cursor-pointer text-white text-sm tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-md active:shadow-inner transition",
 
       outline:
         "bg-white rounded-md cursor-pointer text-primary-blue-600 text-sm tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",

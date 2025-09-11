@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+
 
 @theme {
   /* Colors */
@@ -9,23 +13,27 @@
   --color-secondary-green: green;
   --color-tertiary-yellow: yellow;
   --color-primary-danger-red: red;
-  /*font-size: 
-BOLD FONTWEIGHT = 600-700
-  headline large =  h1: 22 
-     - Page title
-  Section Headers = h2: 20
-     - User Management 
-  Title  = h3: 14 
-      - Table Column Headers, buttons 
 
-NORMAL FONT WEIGHT
-  SubTitle = 14
-  Text =  all data-text: 12
+  
 
-LESS FONTWEIGHT = hints/disabled
-  Hints = 11; color = grey
+  --font-poppins: 'Poppins', Georgia, 'Times New Roman', serif;
 
-  */
+  /* ======================= Bold font weights ======================= */ 
+ 
+  --font-weight-600: 600; /* Semi-bold */ 
+  --font-weight-700: 700; /* Bold */ 
+  --text-size-h1-22: 1.375rem; /* 22px – Page Title */ 
+  --text-size-section-h2-20: 1.25rem; /* 20px – Section headers */ 
+  --text-size-title-h3-14: 0.875rem; /* 14px – Column headers, buttons, nav text */ 
+  
+  /* ======================= Normal font weights ======================= */ 
+  --font-weight-normal: 400; /*Normal*/
+  --text-size-all-data-12: 0.75rem; /* 12px – Table data */
+  
+  /* ======================= For less FontWeight Hints/Disable text ======================= */ 
+  --color-less-font-grey: #9CA3AF; /* Tailwind Gray-400 */
+  --text-size-hints-or-disabled-11: 0.6875rem; /* 11px – Hints, disabled text */ 
 
-  /* Font Family */
+  
+ 
 }
