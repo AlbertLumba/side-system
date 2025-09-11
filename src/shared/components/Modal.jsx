@@ -1,3 +1,4 @@
+// src/shared/components/Modal.jsx
 import React from "react";
 
 export default function Modal({ isOpen, onClose, children, location }) {
@@ -9,7 +10,7 @@ export default function Modal({ isOpen, onClose, children, location }) {
         location === "justify-center" ? "justify-center" : "justify-end"
       } bg-black/30 backdrop-blur-sm z-50`}
     >
-      <div className="bg-white h-full w-1/4 max-w-md shadow-lg overflow-y-auto">
+      <div className="bg-white w-1/3 max-w-md max-h-[90vh] rounded-lg shadow-lg overflow-y-auto">
         <div className="p-6 relative">
           <button
             onClick={onClose}

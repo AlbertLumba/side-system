@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProdManagementViewTable from "./components/ProdManagementTable";
 import Button from "../../shared/components/Button";
 import Modal from "../../shared/components/Modal";
-import Input from "../../shared/components/Input";
+import ProdManagementForm from "./components/ProdManagemenForm";
 import { FaPlus } from "react-icons/fa6";
 import {
   openAddProductModal,
@@ -14,19 +14,6 @@ import {
 export default function ProdManagementViewTableFeatures() {
   const dispatch = useDispatch();
   const isAddModalOpen = useSelector((state) => state.products.isAddModalOpen);
-
-  // Local state for inputs
-  const [formData, setFormData] = useState({ name: "", price: "" });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Saving product:", formData); // Later: dispatch(addProduct(formData))
-    dispatch(closeAddProductModal());
-  };
 
   return (
     <section className="p-6 bg-white rounded-lg shadow-md">
@@ -50,31 +37,9 @@ export default function ProdManagementViewTableFeatures() {
       <Modal
         isOpen={isAddModalOpen}
         onClose={() => dispatch(closeAddProductModal())}
+        location={"justify-center"}
       >
-        <h2 className="text-xl font-bold mb-4">Add New Product</h2>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <Input
-            label="Product Name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Enter product name"
-          />
-          <Input
-            label="Price"
-            name="price"
-            type="number"
-            value={formData.price}
-            onChange={handleChange}
-            placeholder="Enter price"
-          />
-          <Button
-            type="submit"
-            className="bg-green-600 text-white hover:bg-green-500 w-full"
-          >
-            Save Product
-          </Button>
-        </form>
+        <ProdManagementForm onClose={() => dispatch(closeAddProductModal())} />
       </Modal>
     </section>
   );

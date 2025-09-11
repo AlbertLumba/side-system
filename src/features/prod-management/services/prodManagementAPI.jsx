@@ -6,6 +6,7 @@ let products = [
   { id: 2, name: "Phone", price: 800, stock: 4, status: "Low Stock" },
   { id: 3, name: "Keyboard", price: 50, stock: 0, status: "Out of Stock" },
   { id: 4, name: "Keyboard", price: 50, stock: 0, status: "Out of Stock" },
+  { id: 5, name: "Keyboard", price: 50, stock: 0, status: "Out of Stock" },
 ];
 
 // --- Fetch all

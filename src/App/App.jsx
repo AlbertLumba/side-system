@@ -1,8 +1,9 @@
+// src/App/App.jsx
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import routes from "./routes";
 import { FaBars } from "react-icons/fa";
-import Navbar from "../shared/components/Navbar"; // ✅ import Navbar
+import Navbar from "../shared/components/Navbar";
 
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -10,10 +11,10 @@ export default function App() {
   return (
     <div className="h-screen flex flex-col font-poppins">
       {/* Header */}
-      <header className="h-14 bg-blue-600 text-white flex items-center px-4 shadow">
+      <header className="bg-blue-600 text-white flex items-center px-4 py-3 shadow">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="mr-4 p-2 rounded hover:bg-blue-500"
+          className="ml-2 mr-4 p-2 rounded hover:bg-blue-500"
         >
           <FaBars size={20} />
         </button>
@@ -25,10 +26,10 @@ export default function App() {
         {/* Sidebar */}
         <aside
           className={`shadow-md transition-all duration-300 ${
-            isSidebarOpen ? "w-64" : "w-0"
+            isSidebarOpen ? "w-64" : "w-16 ml-2" // 👈 keep a small width for icons
           }`}
         >
-          {isSidebarOpen && <Navbar />} {/* ✅ use menu here */}
+          <Navbar isSidebarOpen={isSidebarOpen} />
         </aside>
 
         {/* Main Content */}

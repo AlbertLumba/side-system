@@ -5,7 +5,7 @@ import {
   addProduct,
   editProduct,
   removeProduct,
-} from "../recordsSlice";
+} from "../prodManagementSlice";
 
 export default function useProducts() {
   const dispatch = useDispatch();
