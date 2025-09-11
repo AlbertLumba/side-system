@@ -8,7 +8,7 @@ export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col font-poppins">
       {/* Header */}
       <header className="h-14 bg-blue-600 text-white flex items-center px-4 shadow">
         <button

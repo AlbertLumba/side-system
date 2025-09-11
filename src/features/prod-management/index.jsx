@@ -1,7 +1,7 @@
 // src/features/prod-management-view/index.jsx
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProdManagementViewTable from "./components/prodManagementViewTable";
+import ProdManagementViewTable from "./components/ProdManagementTable";
 import Button from "../../shared/components/Button";
 import Modal from "../../shared/components/Modal";
 import Input from "../../shared/components/Input";
@@ -9,7 +9,7 @@ import { FaPlus } from "react-icons/fa6";
 import {
   openAddProductModal,
   closeAddProductModal,
-} from "./prodManagementViewSlice";
+} from "./prodManagementSlice";
 
 export default function ProdManagementViewTableFeatures() {
   const dispatch = useDispatch();
@@ -51,7 +51,6 @@ export default function ProdManagementViewTableFeatures() {
         isOpen={isAddModalOpen}
         onClose={() => dispatch(closeAddProductModal())}
       >
-        
         <h2 className="text-xl font-bold mb-4">Add New Product</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input

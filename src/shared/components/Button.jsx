@@ -16,7 +16,7 @@ export default function Button({
   ...props
 }) {
   const baseClasses =
-    "inline-flex items-center justify-center px-4 py-2 rounded font-medium transition-colors duration-200 focus:outline-none";
+    "inline-flex items-center justify-center px-4 py-2 rounded font-600 text-size-title-h3-14 transition-colors duration-200 focus:outline-none";
 
   const sizeClasses = iconOnly
     ? "p-2" // square button, just icon
@@ -24,10 +24,10 @@ export default function Button({
   const variantClasses = {
     "primary-blue": {
       solid:
-        "bg-primary-blue-500 rounded-md cursor-pointer text-white text-sm tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-md active:shadow-inner transition",
+        "bg-primary-blue-500 rounded-md cursor-pointer text-white tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-md active:shadow-inner transition",
 
       outline:
-        "bg-white rounded-md cursor-pointer text-primary-blue-600 text-sm tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",
+        "bg-white rounded-md cursor-pointer text-primary-blue-600 tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",
 
       text: "text-primary-blue-600",
     },

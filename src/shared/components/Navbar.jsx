@@ -9,7 +9,7 @@ export default function Navbar() {
         {routes.map((route, i) => {
           const IconComponent = route.icon;
           return (
-            <li key={i} className="mb-2">
+            <li key={i} className="mb-2 font-600">
               <NavLink
                 to={route.path}
                 end

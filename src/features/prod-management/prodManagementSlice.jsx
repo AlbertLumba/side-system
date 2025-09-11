@@ -10,7 +10,7 @@ import {
   createProduct,
   updateProduct,
   deleteProduct,
-} from "./services/prodManagementViewAPI";
+} from "./services/prodManagementAPI";
 
 // async thunks
 export const getProducts = createAsyncThunk("products/fetchAll", fetchProducts);

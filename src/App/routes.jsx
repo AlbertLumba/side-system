@@ -2,7 +2,7 @@ import React from "react";
 import { FaTachometerAlt, FaBox, FaClipboardList } from "react-icons/fa";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import RecordsFeature from "../features/records";
-import ProdManagementViewTableFeatures from "../features/prod-management-view";
+import ProdManagementViewTableFeatures from "../features/prod-management";
 
 const routes = [
   {

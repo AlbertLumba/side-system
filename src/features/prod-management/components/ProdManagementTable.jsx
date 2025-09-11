@@ -1,7 +1,7 @@
 // src/features/products/components/ProductsTable.jsx
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../prodManagementViewSlice";
+import { getProducts } from "../prodManagementSlice";
 import Table from "../../../shared/components/Table";
 
 export default function ProdManagementViewTable() {
