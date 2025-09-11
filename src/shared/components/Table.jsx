@@ -1,9 +1,6 @@
-
 import React, { useState, useMemo, useEffect } from "react";
 import Button from "../../shared/components/Button";
-import { GrView } from "react-icons/gr";
-
-
+import { BsEyeFill } from "react-icons/bs";
 
 export default function Table({
   columns,
@@ -93,7 +90,6 @@ export default function Table({
               customHeader({ columnWidths, startResizing })
             ) : (
               <tr>
-
                 {columns.map((col, i) => (
                   <th
                     key={i}
@@ -131,11 +127,7 @@ export default function Table({
               </tr>
             ) : (
               paginatedData.map((row, i) => (
-
-                <tr
-                  key={i}
-                  className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                >
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                   {row.map((cell, j) => (
                     <td
                       key={j}
@@ -163,18 +155,13 @@ export default function Table({
                       borderBottom: "1px solid #e5e7eb",
                     }}
                   >
-
                     <Button
                       onClick={() => onView(row)}
                       color="primary-blue"
                       variant="text"
                     >
-                      <GrView />
-
+                      <BsEyeFill />
                     </Button>
-
-
-
                   </td>
                 </tr>
               ))
@@ -185,7 +172,6 @@ export default function Table({
 
       {/* Pagination */}
       <div className="flex items-center justify-between mt-3 text-sm">
-
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <span>Items:</span>
@@ -207,16 +193,15 @@ export default function Table({
 
           <p>
             Showing {(currentPage - 1) * perPage + 1}–
-            {Math.min(currentPage * perPage, data.length)} of {data.length} records
+            {Math.min(currentPage * perPage, data.length)} of {data.length}{" "}
+            records
           </p>
         </div>
-
 
         <div className="flex items-center gap-1">
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(1)}
-
             className="px-2 py-1 disabled:opacity-50"
           >
             {"<<"}
@@ -233,9 +218,7 @@ export default function Table({
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-
               className={`px-2 py-1 ${
-
                 currentPage === page ? "bg-blue-500 text-white rounded" : ""
               }`}
             >
@@ -247,16 +230,13 @@ export default function Table({
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage((p) => p + 1)}
             className="px-2 py-1 disabled:opacity-50"
-
           >
             {">"}
           </button>
           <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(totalPages)}
-
             className="px-2 py-1 disabled:opacity-50"
-
           >
             {">>"}
           </button>

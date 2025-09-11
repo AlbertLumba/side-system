@@ -20,7 +20,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }) {
                 }}
                 className={({ isActive }) =>
                   `flex items-center h-10 ${
-                    isSidebarOpen ? "gap-3 px-6" : "justify-center"
+                    isSidebarOpen ? "gap-3 px-4" : "justify-center"
                   } rounded transition-colors duration-200 ${
                     isActive
                       ? "bg-primary-blue-600 text-white shadow"

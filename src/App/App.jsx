@@ -14,7 +14,7 @@ export default function App() {
       <header className="bg-blue-600 text-white flex items-center px-4 py-3 shadow">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="ml-2 mr-4 p-2 rounded hover:bg-blue-500"
+          className="mr-4 p-2 rounded hover:bg-blue-500"
         >
           <FaBars size={20} />
         </button>
@@ -25,7 +25,7 @@ export default function App() {
       <div className="flex flex-1">
         {/* Sidebar */}
         <aside
-          className={`shadow-md bg-white transition-[width] duration-300 ease-in-out 
+          className={`shadow-md bg-white transition-[width] dturation-300 ease-in-out 
     ${isSidebarOpen ? "w-64" : "w-16"}`}
         >
           <Navbar
