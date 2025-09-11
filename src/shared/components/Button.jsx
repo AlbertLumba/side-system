@@ -29,7 +29,7 @@ export default function Button({
       outline:
         "bg-white rounded-md cursor-pointer text-primary-blue-600 tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",
 
-      text: "text-primary-blue-600",
+      text: "text-primary-blue-600 cursor-pointer",
     },
   };
 

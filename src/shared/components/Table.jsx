@@ -1,5 +1,8 @@
 
 import React, { useState, useMemo, useEffect } from "react";
+import Button from "../../shared/components/Button";
+import { GrView } from "react-icons/gr";
+
 
 
 export default function Table({
@@ -160,12 +163,18 @@ export default function Table({
                       borderBottom: "1px solid #e5e7eb",
                     }}
                   >
-                    <button
+
+                    <Button
                       onClick={() => onView(row)}
-                      className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                      color="primary-blue"
+                      variant="text"
                     >
-                      View
-                    </button>
+                      <GrView />
+
+                    </Button>
+
+
+
                   </td>
                 </tr>
               ))
