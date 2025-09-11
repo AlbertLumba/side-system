@@ -51,6 +51,7 @@ export default function ProdManagementViewTableFeatures() {
         isOpen={isAddModalOpen}
         onClose={() => dispatch(closeAddProductModal())}
       >
+        
         <h2 className="text-xl font-bold mb-4">Add New Product</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input

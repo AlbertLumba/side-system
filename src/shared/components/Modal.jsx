@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({ isOpen, onClose, children, location }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-end bg-op bg-opacity-40 z-50">
+    <div
+      className={`fixed inset-0 flex items-center ${
+        location === "justify-center" ? "justify-center" : "justify-end"
+      } bg-black/30 backdrop-blur-sm z-50`}
+    >
       <div className="bg-white h-full w-1/4 max-w-md shadow-lg overflow-y-auto">
         <div className="p-6 relative">
           <button
@@ -19,4 +23,3 @@ export default function Modal({ isOpen, onClose, children }) {
     </div>
   );
 }
-

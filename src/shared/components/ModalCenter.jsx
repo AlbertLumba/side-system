@@ -1,8 +1,8 @@
-export default function ModalCenter({ isOpen, onClose, children }) {
+export default function ModalCenter({ isOpen, onClose, children, location }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50">
+    <div className={`fixed inset-0 flex items-center ${location} bg-black/30 backdrop-blur-sm z-50`}>
       <div className="bg-white w-2/3 max-w-4xl rounded-lg shadow-xl overflow-y-auto max-h-[90vh]">
         <div className="p-6 relative">
           {/* Close button */}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RecordsTable from "./components/RecordsTable";
 import Button from "../../shared/components/Button";
-import ModalCenter from "../../shared/components/ModalCenter";
+import Modal from "../../shared/components/Modal";
 import Input from "../../shared/components/Input";
 
 export default function RecordsFeature() {
@@ -78,7 +78,11 @@ export default function RecordsFeature() {
       <RecordsTable />
 
       {/* ✅ Modal with full form */}
-      <ModalCenter isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        location={"justify-center"}
+      >
         <h2 className="text-xl font-bold mb-4">Add Tag</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -180,7 +184,7 @@ export default function RecordsFeature() {
             </Button>
           </div>
         </form>
-      </ModalCenter>
+      </Modal>
     </section>
   );
 }
