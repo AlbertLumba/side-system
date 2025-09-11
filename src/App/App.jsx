@@ -25,11 +25,13 @@ export default function App() {
       <div className="flex flex-1">
         {/* Sidebar */}
         <aside
-          className={`shadow-md transition-all duration-300 ${
-            isSidebarOpen ? "w-64" : "w-16 ml-2" // 👈 keep a small width for icons
-          }`}
+          className={`shadow-md bg-white transition-[width] duration-300 ease-in-out 
+    ${isSidebarOpen ? "w-64" : "w-16"}`}
         >
-          <Navbar isSidebarOpen={isSidebarOpen} />
+          <Navbar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
         </aside>
 
         {/* Main Content */}

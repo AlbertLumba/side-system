@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "../../App/routes";
 
-export default function Navbar({ isSidebarOpen }) {
+export default function Navbar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
     <nav className="p-2">
       <ul>
@@ -14,9 +14,13 @@ export default function Navbar({ isSidebarOpen }) {
               <NavLink
                 to={route.path}
                 end
+                onClick={() => {
+                  // 👇 open sidebar if collapsed
+                  if (!isSidebarOpen) setIsSidebarOpen(true);
+                }}
                 className={({ isActive }) =>
-                  `flex items-center ${
-                    isSidebarOpen ? "gap-3 px-6 py-2" : "justify-center py-2"
+                  `flex items-center h-10 ${
+                    isSidebarOpen ? "gap-3 px-6" : "justify-center"
                   } rounded transition-colors duration-200 ${
                     isActive
                       ? "bg-primary-blue-600 text-white shadow"
