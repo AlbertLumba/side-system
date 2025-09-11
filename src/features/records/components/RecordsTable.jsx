@@ -102,7 +102,7 @@ export default function RecordsTable() {
   );
 
   return (
-    <div className="overflow-x-auto ">
+    <div className="overflow-x-auto">
       <Table 
         columns={columns} 
         data={tableData} 
