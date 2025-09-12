@@ -25,6 +25,12 @@ const routes = [
     name: "Products",
     icon: MdProductionQuantityLimits,
   },
+  {
+    path: "/class-product",
+    element: <ProdManagementViewTableFeatures />,
+    name: "Class Product",
+    icon: MdClass,
+    },  
 
   //   {
   //     path: "/class-product",
@@ -40,7 +46,7 @@ const routes = [
   //     icon: MdClass,
   //   },
   // ];
-  
+
   
 ];
 export default routes;
