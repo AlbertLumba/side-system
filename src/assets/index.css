@@ -5,13 +5,10 @@
 
 @theme {
   /* Colors */
-  --color-primary-blue-300: #93c5fd;
-  --color-primary-blue-500: #3b82f6;
-  --color-primary-blue-600: #155dfc;
-  --color-primary-blue-900: #1e3a8a;
-  --color-secondary-green: green;
-  --color-tertiary-yellow: yellow;
-  --color-primary-danger-red: red;
+  --color-primary-blue: #0b75c1;
+  --color-secondary-green: #096744;
+  --color-tertiary-yellow: #db1b31;
+  --color-primary-danger-red: #db1b31;
 
   --font-poppins: "Poppins", Georgia, "Times New Roman", serif;
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTachometerAlt, FaClipboardList } from "react-icons/fa";
 import { MdProductionQuantityLimits, MdClass } from "react-icons/md";
+import DialogModal from "../shared/components/DialogModal";
 
 import RecordsFeature from "../features/records";
 import ProdManagementViewTableFeatures from "../features/prod-management";
@@ -24,12 +25,21 @@ const routes = [
     name: "Products",
     icon: MdProductionQuantityLimits,
   },
-  {
-    path: "/class-product",
-    element: <ProdManagementViewTableFeatures />,
-    name: "Class Product",
-    icon: MdClass,
-  },
-];
 
+  //   {
+  //     path: "/class-product",
+  //     element: (
+  //       <DialogModal
+  //         title="Delete Item"
+  //         message="Are you sure you want to delete this item? This action cannot be undone."
+  //         positiveLabel="Save"
+  //         showNegative={true}
+  //       />
+  //     ),
+  //     name: "Class Product",
+  //     icon: MdClass,
+  //   },
+  // ];
+  
+];
 export default routes;
