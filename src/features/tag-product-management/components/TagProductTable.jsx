@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecords } from "../recordsSlice";
+import { getRecords } from "../TagSlice";
 import Table from "../../../shared/components/Table";
 import Modal from "../../../shared/components/Modal";
 import Button from "../../../shared/components/Button";

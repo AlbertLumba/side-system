@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import recordsReducer from "../features/records/recordsSlice";
+import recordsReducer from "../features/tag-product-management/TagSlice";
 import productsReducer from "../features/prod-management/prodManagementSlice";
 
 const store = configureStore({

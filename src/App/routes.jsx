@@ -3,7 +3,7 @@ import { FaTachometerAlt, FaClipboardList } from "react-icons/fa";
 import { MdProductionQuantityLimits, MdClass } from "react-icons/md";
 import DialogModal from "../shared/components/DialogModal";
 
-import RecordsFeature from "../features/records";
+import RecordsFeature from "../features/tag-product-management";
 import ProdManagementViewTableFeatures from "../features/prod-management";
 
 const routes = [
@@ -40,6 +40,7 @@ const routes = [
   //     icon: MdClass,
   //   },
   // ];
+  
   
 ];
 export default routes;

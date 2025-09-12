@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchRecords } from "./services/recordsAPI";
+import { fetchRecords } from "./services/TagsAPI";
 
-export const getRecords = createAsyncThunk("records/fetch", async () => {
+export const getRecords = createAsyncThunk("tag-product-management/fetch", async () => {
   return await fetchRecords();
 });
 

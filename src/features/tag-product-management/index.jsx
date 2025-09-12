@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RecordsTable from "./components/RecordsTable";
+import RecordsTable from "../tag-product-management/components/TagProductTable";
 import Button from "../../shared/components/Button";
 import Modal from "../../shared/components/Modal";
 import Input from "../../shared/components/Input";
