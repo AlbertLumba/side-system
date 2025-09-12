@@ -94,7 +94,7 @@ export default function RecordsTable() {
           maxWidth: 400,
           position: "relative",
         }}
-        className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center"
+        className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center text-size-title-h3-14"
       >
         Item Type
       </th>
@@ -119,7 +119,7 @@ export default function RecordsTable() {
             maxWidth: 400,
             position: "relative",
           }}
-          className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center"
+          className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center text-size-title-h3-14"
         >
           {sub}
           <div
@@ -138,7 +138,7 @@ export default function RecordsTable() {
             maxWidth: 400,
             position: "relative",
           }}
-          className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center"
+          className="border-l border-r border-t border-b border-gray-400 px-2 py-1 text-center text-size-title-h3-14"
         >
           {sub}
           <div

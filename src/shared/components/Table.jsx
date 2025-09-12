@@ -110,7 +110,7 @@ export default function Table({
                 ))}
                 <th
                   rowSpan={2}
-                  className="px-2 py-1 text-center bg-gray-100 border-b border-gray-300"
+                  className="px-2 py-1 text-center bg-gray-100 border-b border-gray-300 "
                   style={{ position: "sticky", right: 0, zIndex: 40 }}
                 >
                   Action
@@ -131,7 +131,7 @@ export default function Table({
                   {row.map((cell, j) => (
                     <td
                       key={j}
-                      className="p-2 border-b border-gray-200"
+                      className="p-2 border-b border-gray-200 text-size-all-data-12"
                       style={{
                         width: columnWidths[j],
                         minWidth: 80,
@@ -144,7 +144,7 @@ export default function Table({
                   ))}
                   {/* Action column */}
                   <td
-                    className={`p-2 text-center ${
+                    className={`p-2 text-center${
                       i % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
                     }`}
                     style={{
@@ -172,7 +172,7 @@ export default function Table({
 
       {/* Pagination */}
       <div className="flex items-center justify-between mt-3 text-sm">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 text-size-all-data-12">
           <div className="flex items-center gap-2">
             <span>Items:</span>
             <select
@@ -198,7 +198,7 @@ export default function Table({
           </p>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 text-size-all-data-12">
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(1)}
