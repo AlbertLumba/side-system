@@ -85,7 +85,7 @@ export default function Table({
     <div className="w-full">
       <div className="overflow-x-auto overflow-y-auto max-h-[557px] relative">
         <table className="w-full min-w-max border-separate border-spacing-0">
-          <thead className="sticky top-0 bg-gray-200 z-20">
+          <thead className="sticky top-0 bg-gray-200 z-20 text-size-title-h3-14">
             {customHeader ? (
               customHeader({ columnWidths, startResizing })
             ) : (
@@ -93,7 +93,7 @@ export default function Table({
                 {columns.map((col, i) => (
                   <th
                     key={i}
-                    className="p-2 text-left relative border-b border-gray-300"
+                    className="p-2 text-left relative border-b border-gray-300 text-size-title-h3-14"
                     style={{
                       width: columnWidths[i],
                       minWidth: 80,
@@ -121,7 +121,10 @@ export default function Table({
           <tbody>
             {paginatedData.length === 0 ? (
               <tr>
-                <td colSpan={columns.length + 1} className="text-center p-4">
+                <td
+                  colSpan={columns.length + 1}
+                  className="text-center p-4 text-[var(--text-size-all-data-12)]"
+                >
                   No records found
                 </td>
               </tr>
@@ -144,7 +147,7 @@ export default function Table({
                   ))}
                   {/* Action column */}
                   <td
-                    className={`p-2 text-center${
+                    className={`p-2 text-center text-size-all-data-12 ${
                       i % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
                     }`}
                     style={{
@@ -171,8 +174,8 @@ export default function Table({
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between mt-3 text-sm">
-        <div className="flex items-center gap-6 text-size-all-data-12">
+      <div className="flex items-center justify-between mt-3 text-sm text-size-all-data-12">
+        <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <span>Items:</span>
             <select
@@ -198,7 +201,7 @@ export default function Table({
           </p>
         </div>
 
-        <div className="flex items-center gap-1 text-size-all-data-12">
+        <div className="flex items-center gap-1">
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(1)}
