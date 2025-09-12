@@ -34,7 +34,7 @@ const routes = [
   {
     path: "/logout",
     element: <ProdManagementViewTableFeatures />,
-    name: "",
+    name: "logout",
     icon: MdLogout,
   },
 

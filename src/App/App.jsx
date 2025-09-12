@@ -16,7 +16,7 @@ export default function App() {
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="mr-4 p-2 rounded hover:bg-primary-blue"
         >
-          <FaBars size={20} />
+          <FaBars size={20} className="cursor-pointer" />
         </button>
         <h1 className="font-semibold text-lg">Production Manager</h1>
       </header>
