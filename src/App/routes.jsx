@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTachometerAlt, FaClipboardList } from "react-icons/fa";
-import { MdProductionQuantityLimits, MdClass } from "react-icons/md";
+import { MdProductionQuantityLimits, MdClass, MdLogout } from "react-icons/md";
 import DialogModal from "../shared/components/DialogModal";
 
 import RecordsFeature from "../features/tag-product-management";
@@ -30,7 +30,13 @@ const routes = [
     element: <ProdManagementViewTableFeatures />,
     name: "Class Product",
     icon: MdClass,
-    },  
+  },
+  {
+    path: "/logout",
+    element: <ProdManagementViewTableFeatures />,
+    name: "",
+    icon: MdLogout,
+  },
 
   //   {
   //     path: "/class-product",
@@ -46,7 +52,5 @@ const routes = [
   //     icon: MdClass,
   //   },
   // ];
-
-  
 ];
 export default routes;

@@ -26,7 +26,7 @@ export default function App() {
         {/* Sidebar */}
         <aside
           className={`shadow-md bg-white transition-[width] duration-300 ease-in-out 
-    ${isSidebarOpen ? "w-64" : "w-16"}`}
+    ${isSidebarOpen ? "w-60" : "w-16"}`}
         >
           <Navbar
             isSidebarOpen={isSidebarOpen}

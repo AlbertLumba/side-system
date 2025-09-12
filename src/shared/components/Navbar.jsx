@@ -1,21 +1,24 @@
-// src/shared/components/Navbar.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "../../App/routes";
 
 export default function Navbar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
-    <nav className="p-2">
-      <ul>
+    <nav className="p-2 h-full">
+      <ul className="flex flex-col h-full">
         {routes.map((route, i) => {
           const IconComponent = route.icon;
+          const isLast = i === routes.length - 1; // ✅ check last item
+
           return (
-            <li key={i} className="mb-2 font-normal">
+            <li
+              key={i}
+              className={`mb-3 font-normal ${isLast ? "mt-auto mb-5" : ""}`} // ✅ push last item down
+            >
               <NavLink
                 to={route.path}
                 end
                 onClick={() => {
-                  // 👇 open sidebar if collapsed
                   if (!isSidebarOpen) setIsSidebarOpen(true);
                 }}
                 className={({ isActive }) =>
