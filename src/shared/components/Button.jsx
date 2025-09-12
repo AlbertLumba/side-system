@@ -24,12 +24,12 @@ export default function Button({
   const variantClasses = {
     "primary-blue": {
       solid:
-        "bg-primary-blue-500 rounded-md cursor-pointer text-white tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue-300 hover:shadow-md active:shadow-inner transition",
+        "bg-primary-blue rounded-md cursor-pointer text-white tracking-wider font-semibold outline-none border-none shadow-md shadow-primary-blue hover:shadow-sm active:shadow-inner transition",
 
       outline:
-        "bg-white rounded-md cursor-pointer text-primary-blue-600 tracking-wider font-semibold outline-none border border-primary-blue-600 shadow-md hover:shadow-primary-blue-300 hover:shadow-2xl active:shadow-inner transiton",
+        "bg-white rounded-md cursor-pointer text-primary-blue tracking-wider font-semibold outline-none border border-primary-blue shadow-sm hover:shadow-primary-blue hover:shadow-sm active:shadow-inner transiton",
 
-      text: "text-primary-blue-600 cursor-pointer",
+      text: "text-primary-blue cursor-pointer",
     },
   };
 

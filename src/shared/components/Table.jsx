@@ -219,7 +219,7 @@ export default function Table({
               key={page}
               onClick={() => setCurrentPage(page)}
               className={`px-2 py-1 ${
-                currentPage === page ? "bg-blue-500 text-white rounded" : ""
+                currentPage === page ? "bg-primary-blue text-white rounded" : ""
               }`}
             >
               {page}

@@ -23,7 +23,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }) {
                     isSidebarOpen ? "gap-3 px-4" : "justify-center"
                   } rounded transition-colors duration-200 ${
                     isActive
-                      ? "bg-primary-blue-600 text-white shadow"
+                      ? "bg-primary-blue text-white shadow"
                       : "text-gray-700 hover:bg-gray-200"
                   }`
                 }
