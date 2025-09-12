@@ -10,7 +10,7 @@ import {
 
 import RecordsFeature from "../features/tag-product-management";
 import ProdManagementViewTableFeatures from "../features/prod-management";
-
+import ClassProductManagementFeatures from "../features/class-product-management";
 import planogramIcon from "../assets/images/icons8-rack-50 (1).png";
 
 const routes = [
@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: "/class-product",
-    element: <ProdManagementViewTableFeatures />,
+    element: <ClassProductManagementFeatures />,
     name: "Class Product",
     icon: MdClass,
   },
