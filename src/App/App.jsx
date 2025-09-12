@@ -7,11 +7,11 @@ import Navbar from "../shared/components/Navbar";
 
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  
   return (
     <div className="h-screen flex flex-col font-poppins">
       {/* Header */}
-      <header className="bg-primary-blue text-white flex items-center px-4 py-3 shadow">
+      <header className="bg-primary-blue text-white flex items-center px-4 py-3">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="mr-4 p-2 rounded hover:bg-primary-blue"
@@ -22,7 +22,7 @@ export default function App() {
       </header>
 
       {/* Layout */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 shadow text-size-title-h3-14">
         {/* Sidebar */}
         <aside
           className={`shadow-md bg-white transition-[width] duration-300 ease-in-out 
@@ -31,6 +31,7 @@ export default function App() {
           <Navbar
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
+          
           />
         </aside>
 

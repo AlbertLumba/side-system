@@ -85,7 +85,7 @@ export default function Table({
     <div className="w-full">
       <div className="overflow-x-auto overflow-y-auto max-h-[557px] relative">
         <table className="w-full min-w-max border-separate border-spacing-0">
-          <thead className="sticky top-0 bg-gray-200 z-20 text-size-title-h3-14">
+          <thead className="sticky top-0 bg-gray-200 z-20 text-size-title-h3-14 font-600">
             {customHeader ? (
               customHeader({ columnWidths, startResizing })
             ) : (

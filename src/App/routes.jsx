@@ -1,17 +1,24 @@
+// src/App/routes.jsx
 import React from "react";
-import { FaTachometerAlt, FaClipboardList } from "react-icons/fa";
-import { MdProductionQuantityLimits, MdClass, MdLogout } from "react-icons/md";
-import DialogModal from "../shared/components/DialogModal";
+import { FaClipboardList } from "react-icons/fa";
+import {
+  MdProductionQuantityLimits,
+  MdClass,
+  MdLogout,
+  MdDashboard,
+} from "react-icons/md";
 
 import RecordsFeature from "../features/tag-product-management";
 import ProdManagementViewTableFeatures from "../features/prod-management";
+
+import planogramIcon from "../assets/images/icons8-rack-50 (1).png";
 
 const routes = [
   {
     path: "/",
     element: <h1 className="text-2xl font-bold">Welcome Home</h1>,
     name: "Dashboard",
-    icon: FaTachometerAlt,
+    icon: MdDashboard,
   },
   {
     path: "/tag-management",
@@ -32,25 +39,23 @@ const routes = [
     icon: MdClass,
   },
   {
+    path: "/planogram",
+    element: <ProdManagementViewTableFeatures />,
+    name: "Planogram",
+    icon: (props) => (
+      <img
+        src={planogramIcon}
+        alt="Planogram"
+        className={`w-5 h-5 ${props.className || ""}`}
+      />
+    ),
+  },
+  {
     path: "/logout",
     element: <ProdManagementViewTableFeatures />,
-    name: "logout",
+    name: "Logout",
     icon: MdLogout,
   },
-
-  //   {
-  //     path: "/class-product",
-  //     element: (
-  //       <DialogModal
-  //         title="Delete Item"
-  //         message="Are you sure you want to delete this item? This action cannot be undone."
-  //         positiveLabel="Save"
-  //         showNegative={true}
-  //       />
-  //     ),
-  //     name: "Class Product",
-  //     icon: MdClass,
-  //   },
-  // ];
 ];
+
 export default routes;
